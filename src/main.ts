@@ -43,7 +43,6 @@ async function bootstrap() {
 
   app.use(bodyParser.json({ limit: '20mb' }));
   app.use(bodyParser.urlencoded({ limit: '20mb', extended: true }));
-  /*
 
   const connection = await createConnection({
     ...(ormconfig as PostgresConnectionOptions),
@@ -62,20 +61,20 @@ async function bootstrap() {
         const tenantName = schema.replace('tenant_', '');
 
         const connection2 = await getTenantConnection(tenantName);
-        // console.log(connection2);
 
         await connection2.runMigrations();
         await connection2.close();
+
         Logger.warn(`current schema: ${schema}`, 'schema');
         Logger.warn(`current schema name: ${tenantName}`, 'tenantName');
       } catch (error) {
-        console.log(error);
+        // console.log(error);
 
         Logger.error(error, 'error');
       }
     }
   }
-*/
+
   Logger.log('schema migration ran successfuly', 'migration');
 
   await app.listen(config.PORT, () => {
