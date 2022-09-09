@@ -7,6 +7,8 @@ module.exports = {
   synchronize: true,
   autoLoadEntities: true,
   logger: 'debug',
-  entities: [join(__dirname, './modules/public/**/entities/*.entity{.ts,.js}')],
+  entities: [
+    join(__dirname, './modules/public/tenants/entities/*.entity{.ts,.js}'),
+  ],
   migrations: [join(__dirname, './migrations/*{.ts,.js}')],
 };
